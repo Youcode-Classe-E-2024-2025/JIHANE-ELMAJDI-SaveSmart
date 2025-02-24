@@ -40,6 +40,34 @@
     </nav>
 </header>
 <body>
-    
+    <main>
+        <!-- https://gist.github.com/goodreds/3d044027175954984fb96c7407a955ab -->
+
+<!-- Container -->
+<div class="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:max-w-5xl lg:mt-12 xl:max-w-6xl">
+
+    <!-- Image Column -->
+    <div class="w-full h-64 lg:w-1/2 lg:h-auto">
+        <img class="h-full w-full object-cover" src="https://images.pexels.com/photos/271168/pexels-photo-271168.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Winding mountain road">
+    </div>
+    <!-- Close Image Column -->
+
+    <!-- Text Column -->
+    <div
+        class="max-w-lg bg-white md:max-w-2xl md:z-10 md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
+        <!-- Text Wrapper -->
+        <div class="flex flex-col p-12 md:px-16">
+            <h2 class="text-2xl font-medium uppercase text-green-800 lg:text-4xl">SaveSmart</h2>
+            <p class="mt-4">
+                Prenez le contrôle de vos finances avec SaveSmart, l'outil simple et efficace pour gérer votre budget familial. Grâce à des fonctionnalités pratiques comme le suivi des revenus, des dépenses, et des objectifs d'épargne, SaveSmart vous aide à optimiser votre gestion financière au quotidien. Que vous soyez débutant ou confirmé, notre interface intuitive vous permet de visualiser facilement vos finances, d'ajouter des catégories personnalisées et de suivre vos progrès. Avec des outils d'optimisation budgétaire et des exports de données, atteignez vos objectifs financiers avec confiance et sérénité.
+            </p>
+            
+        </div>
+        <!-- Close Text Wrapper -->
+    </div>
+    <!-- Close Text Column -->
+
+</div>
+    </main>
 </body>
 </html>
