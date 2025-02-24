@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function family()
+{
+    return $this->belongsTo(Family::class);
+}
+
 }
