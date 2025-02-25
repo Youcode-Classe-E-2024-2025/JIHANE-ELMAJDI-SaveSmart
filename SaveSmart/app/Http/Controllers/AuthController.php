@@ -34,7 +34,7 @@ class AuthController extends Controller
     ]);
 
     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-        return redirect()->route('dashboard');
+        return redirect()->route('dashbord');
     } else {
         return back()->with('error', 'Email ou mot de passe incorrecte ');
     }
