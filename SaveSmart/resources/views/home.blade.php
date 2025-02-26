@@ -30,7 +30,7 @@
         <div class="hidden items-center justify-center gap-6 md:flex">
             <a href="{{route('login')}}" class="font-dm text-sm font-medium text-slate-700">Se connecter</a>
             <a href={{"register"}}
-                class="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
+                class="rounded-md bg-[#DF6AAB] px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md text-rose-500 transition-transform duration-200 ease-in-out hover:scale-[1.03]">
                 s'inscrire
             </a>
         </div>
@@ -66,7 +66,7 @@
                 class="max-w-lg bg-white md:max-w-2xl md:z-10 md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
                 <!-- Text Wrapper -->
                 <div class="flex flex-col p-12 md:px-16">
-                    <h2 class="text-2xl font-medium uppercase text-green-800 lg:text-4xl mb-50">SaveSmart</h2>
+                    <h2 class="text-2xl font-medium uppercase text-[#DF6AAB] lg:text-4xl mb-50">SaveSmart</h2>
                     <p class="mt-4">
                         Prenez le contrôle de vos finances avec SaveSmart, l'outil simple et efficace pour gérer votre
                         budget familial. Grâce à des fonctionnalités pratiques comme le suivi des revenus, des dépenses,
