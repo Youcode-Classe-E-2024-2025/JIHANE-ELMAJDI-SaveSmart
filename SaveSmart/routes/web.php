@@ -52,7 +52,15 @@ Route::get('/home', function () {
 })->name('home');
 
 
+Route::get('/profile', function () {
+    return view('profile');
+})->name("profile");
 
+Route::get('/dashbord', function () {
+    return view('dashbord');
+})->name("dashbord");
 
+use App\Http\Controllers\ProfileController;
 
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 

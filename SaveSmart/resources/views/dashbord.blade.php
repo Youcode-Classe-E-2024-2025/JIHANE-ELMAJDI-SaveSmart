@@ -19,14 +19,14 @@
                     <li class="mb-3"><a href="#" class="block p-2 hover:bg-purple-700 rounded">🎯 Objectifs</a></li>
                 </ul>
             </nav>
-            <a href="home" class="block p-2 bg-red-600 text-center rounded mt-4">🔒 Déconnexion</a>
+            <a href="home.blade.php" class="block p-2 bg-red-600 text-center rounded mt-4">🔒 Déconnexion</a>
         </aside>
 
         <!-- Main Content -->
         <main class="flex-1 p-6">
             <header class="flex justify-between items-center mb-6">
                 <h1 class="text-2xl font-bold">Tableau de Bord</h1>
-                <button onclick="location.href='profile.blade.php'" class="bg-white p-2 rounded shadow-md">👤 Profil</button>
+                <button onclick="location.href='profile'" class="bg-white p-2 rounded shadow-md">👤 Profil</button>
             </header>
             
             <!-- Stat Cards & Chart -->
