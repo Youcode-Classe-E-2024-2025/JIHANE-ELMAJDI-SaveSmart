@@ -14,7 +14,7 @@
             @csrf
             <div class="relative w-32 h-32 mx-auto mb-6">
                 <img id="profileImage" src="{{ asset('storage/' . auth()->user()->photo) }}" 
-                     alt="Photo de profil" 
+                     
                      class="w-full h-full rounded-full object-cover border-4 border-pink-500 shadow-lg transition-transform duration-300 hover:scale-105">
                 <input type="file" id="uploadImage" name="photo" class="hidden" accept="image/*">
                 <label for="uploadImage" class="absolute bottom-2 right-2 bg-blue-600 text-white p-2 rounded-full cursor-pointer shadow-md hover:bg-blue-700">
