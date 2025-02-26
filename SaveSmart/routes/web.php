@@ -23,4 +23,36 @@ Route::get('/register', function () {
 Route::get('/dashbord', function () {
     return view('dashbord');
 })->name('dashbord');  
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/dashboard', function () {
+    
+    if (Auth::check()) {
+        return view('dashboard', ['user' => Auth::user()]);
+    }
+    
+
+    return redirect()->route('login');
+})->middleware('auth')->name('dashboard');
+
+
+
+Route::post('/login', [AuthController::class, 'login']);  
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth')->name('dashboard'); 
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login')->with('success', 'You have been logged out.');
+})->name('logout');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+
+
+
+
+
 
