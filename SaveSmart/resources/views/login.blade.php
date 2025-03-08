@@ -1,78 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-    <!-- Header -->
-    <meta charSet="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="My Express JS website">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveSmart - Connexion</title>
+    @vite('resources/css/app.css')
+    <style>
+        .animate-fade-up { animation: fadeUp 0.6s ease-out; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
-<body class="bg-gray-100 h-screen flex items-center justify-center flex flex-col">
-    <!-- component -->
-    <div class="h-screen bg-gradient-to-br from-blue-600 to-cyan-300 flex justify-center items-center w-full">
-        <form action="/login" method="POST">
-            @csrf
-            <div class="bg-white px-10 py-8 rounded-xl w-screen shadow-xl max-w-sm">
-                <div class="space-y-4">
-                    <h1 class="text-center text-2xl font-semibold text-gray-600">Login</h1>
-                    @if (session('error'))
-                        <div
-                            style="color: red; background: #ffe6e6; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-                    <hr>
-                    <div class="flex items-center border-2 py-2 px-3 rounded-md mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                        </svg>
-                        <input class="pl-2 outline-none border-none w-full" type="email" name="email" value=""
-                            placeholder="Email" required />
-
-                    </div>
-                    <div class="flex items-center border-2 py-2 px-3 rounded-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                                clip-rule="evenodd" />
-                        </svg>
-                        <input class="pl-2 outline-none border-none w-full" type="password" name="password"
-                            id="" placeholder="Password" required />
-
-                    </div>
-                </div>
-                <!-- Remember Me checkbox -->
-                <div class="flex justify-center items-center mt-4">
-                    <p class="inline-flex items-center text-gray-700 font-medium text-xs text-center">
-                        <input type="checkbox" id="rememberMeCheckbox" name="rememberMe" class="mr-2">
-                        <span class="text-xs font-semibold">Remember me?</span>
-                    </p>
-                </div>
-
-                <button type="submit" value="login" id="login"
-                    class="mt-6 w-full shadow-xl bg-gradient-to-tr from-blue-600 to-red-400 hover:to-red-700 text-indigo-100 py-2 rounded-md text-lg tracking-wide transition duration-1000">Login</button>
-                <hr>
-                <div class="flex justify-center items-center mt-4">
-                    <p class="inline-flex items-center text-gray-700 font-medium text-xs text-center">
-                        <span class="ml-2">You don't have an account?<a href="{{ route('register') }}"
-                                class="text-xs ml-2 text-blue-500 font-semibold">Register now &rarr;</a>
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="pt-6 text-base font-semibold leading-7">
-                <p class="font-sans text-red-500 text-md hover:text-red-800">
-                    <a href="/" class="absolute">&larr; Home</a>
+<body class="bg-gradient-to-br from-pink-100 to-pink-200">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8 animate-fade-up">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-pink-800">
+                    Connectez-vous à votre compte
+                </h2>
+                <p class="mt-2 text-center text-sm text-pink-600">
+                    Ou
+                    <a href="{{ route('register') }}" class="font-medium text-pink-500 hover:text-pink-700 transition-colors duration-200">
+                        créez un compte gratuitement
+                    </a>
                 </p>
             </div>
-        </form>
+
+            @if ($errors->any())
+            <div class="rounded-md bg-pink-50 p-4 border border-pink-200">
+                <div class="flex">
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-pink-800">
+                            Des erreurs sont survenues :
+                        </h3>
+                        <div class="mt-2 text-sm text-pink-700">
+                            <ul class="list-disc pl-5 space-y-1">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+            <form class="mt-8 space-y-6" action="{{ route('login') }}" method="POST">
+                @csrf
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div>
+                        <label for="email" class="sr-only">Adresse email</label>
+                        <input id="email" name="email" type="email" required 
+                               value="{{ old('email') }}"
+                               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-pink-300 placeholder-pink-400 text-gray-900 rounded-t-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm transition-colors duration-200"
+                               placeholder="Adresse email">
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Mot de passe</label>
+                        <input id="password" name="password" type="password" required
+                               class="appearance-none rounded-none relative block w-full px-3 py-2 border border-pink-300 placeholder-pink-400 text-gray-900 rounded-b-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm transition-colors duration-200"
+                               placeholder="Mot de passe">
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit"
+                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 transform transition-all duration-200 hover:scale-105">
+                        Se connecter
+                    </button>
+                </div>
+            </form>
+
+            <div class="text-center">
+                <a href="{{ route('home') }}" class="text-sm text-pink-600 hover:text-pink-800 transition-colors duration-200">
+                    ← Retour à l'accueil
+                </a>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>
